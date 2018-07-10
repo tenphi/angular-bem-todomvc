@@ -1,24 +1,30 @@
 <section block="todoapp">
-	<header elem="header">
-		<h1>todos</h1>
-		<input elem="todo-new" placeholder="What needs to be done?" autofocus="" [(ngModel)]="newTodoText" (keyup.enter)="addTodo()">
-	</header>
-	<section elem="main" *ngIf="todoStore.todos.length > 0">
-		<input elem="toggle-all" id="toggle-all" type="checkbox" *ngIf="todoStore.todos.length" #toggleall [checked]="todoStore.allCompleted()" (click)="todoStore.setAllTo(toggleall.checked)">
-		<label elem="toggle-all-label" for="toggle-all">Mark all as complete</label>
-		<ul elem="todo-list">
-			<li elem="todo" [mod]="{ completed: todo.completed, editing: todo.editing }" *ngFor="let todo of todoStore.todos">
-				<div elem="todo-inner">
-					<input elem="todo-toggle" type="checkbox" (click)="toggleCompletion(todo)" [checked]="todo.completed">
-					<label elem="todo-label" (dblclick)="editTodo(todo)">{{todo.title}}</label>
-					<button elem="todo-destroy" (click)="remove(todo)"></button>
-				</div>
-				<input elem="todo-edit" *ngIf="todo.editing" [value]="todo.title" #editedtodo (blur)="stopEditing(todo, editedtodo.value)" (keyup.enter)="updateEditingTodo(todo, editedtodo.value)" (keyup.escape)="cancelEditingTodo(todo)">
-			</li>
-		</ul>
-	</section>
-	<footer elem="footer" *ngIf="todoStore.todos.length > 0">
-		<span elem="todo-count"><strong>{{todoStore.getRemaining().length}}</strong> {{todoStore.getRemaining().length == 1 ? 'item' : 'items'}} left</span>
-		<button elem="clear-completed" *ngIf="todoStore.getCompleted().length > 0" (click)="removeCompleted()">Clear completed</button>
-	</footer>
+  <header elem="header">
+    <h1>todos</h1>
+    <input elem="todo-new" placeholder="What needs to be done?" autofocus="" [(ngModel)]="newTodoText"
+           (keyup.enter)="addTodo()">
+  </header>
+  <section elem="main" *ngIf="todoStore.todos.length > 0">
+    <input elem="toggle-all" id="toggle-all" type="checkbox" *ngIf="todoStore.todos.length" #toggleall
+           [checked]="todoStore.allCompleted()" (click)="todoStore.setAllTo(toggleall.checked)">
+    <label elem="toggle-all-label" for="toggle-all">Mark all as complete</label>
+    <ul elem="todo-list">
+      <li elem="todo" [mod]="{ completed: todo.completed, editing: todo.editing }" *ngFor="let todo of todoStore.todos">
+        <div elem="todo-inner">
+          <input elem="todo-toggle" type="checkbox" (click)="toggleCompletion(todo)" [checked]="todo.completed">
+          <label elem="todo-label" (dblclick)="editTodo(todo)">{{todo.title}}</label>
+          <button elem="todo-destroy" (click)="remove(todo)"></button>
+        </div>
+        <input elem="todo-edit" *ngIf="todo.editing" [value]="todo.title" #editedtodo
+               (blur)="stopEditing(todo, editedtodo.value)" (keyup.enter)="updateEditingTodo(todo, editedtodo.value)"
+               (keyup.escape)="cancelEditingTodo(todo)">
+      </li>
+    </ul>
+  </section>
+  <footer elem="footer" *ngIf="todoStore.todos.length > 0">
+    <span elem="todo-count"><strong>{{todoStore.getRemaining().length}}</strong> {{todoStore.getRemaining().length == 1 ? 'item' : 'items'}} left</span>
+    <button elem="clear-completed" *ngIf="todoStore.getCompleted().length > 0" (click)="removeCompleted()">Clear
+      completed
+    </button>
+  </footer>
 </section>

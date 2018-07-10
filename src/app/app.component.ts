@@ -2,58 +2,58 @@ import {Component} from '@angular/core';
 import {TodoStore, Todo} from './services/store';
 
 @Component({
-	selector: 'todo-app',
-	templateUrl: 'app.html',
-	styleUrls: ['app.css']
+  selector: 'todo-app',
+  templateUrl: 'app.html',
+  styleUrls: ['app.css']
 })
 export class TodoApp {
-	todoStore: TodoStore;
-	newTodoText = '';
+  todoStore: TodoStore;
+  newTodoText = '';
 
-	constructor(todoStore: TodoStore) {
-		this.todoStore = todoStore;
-	}
+  constructor(todoStore: TodoStore) {
+    this.todoStore = todoStore;
+  }
 
-	stopEditing(todo: Todo, editedTitle: string) {
-		todo.title = editedTitle;
-		todo.editing = false;
-	}
+  stopEditing(todo: Todo, editedTitle: string) {
+    todo.title = editedTitle;
+    todo.editing = false;
+  }
 
-	cancelEditingTodo(todo: Todo) {
-		todo.editing = false;
-	}
+  cancelEditingTodo(todo: Todo) {
+    todo.editing = false;
+  }
 
-	updateEditingTodo(todo: Todo, editedTitle: string) {
-		editedTitle = editedTitle.trim();
-		todo.editing = false;
+  updateEditingTodo(todo: Todo, editedTitle: string) {
+    editedTitle = editedTitle.trim();
+    todo.editing = false;
 
-		if (editedTitle.length === 0) {
-			return this.todoStore.remove(todo);
-		}
+    if (editedTitle.length === 0) {
+      return this.todoStore.remove(todo);
+    }
 
-		todo.title = editedTitle;
-	}
+    todo.title = editedTitle;
+  }
 
-	editTodo(todo: Todo) {
-		todo.editing = true;
-	}
+  editTodo(todo: Todo) {
+    todo.editing = true;
+  }
 
-	removeCompleted() {
-		this.todoStore.removeCompleted();
-	}
+  removeCompleted() {
+    this.todoStore.removeCompleted();
+  }
 
-	toggleCompletion(todo: Todo) {
-		this.todoStore.toggleCompletion(todo);
-	}
+  toggleCompletion(todo: Todo) {
+    this.todoStore.toggleCompletion(todo);
+  }
 
-	remove(todo: Todo){
-		this.todoStore.remove(todo);
-	}
+  remove(todo: Todo) {
+    this.todoStore.remove(todo);
+  }
 
-	addTodo() {
-		if (this.newTodoText.trim().length) {
-			this.todoStore.add(this.newTodoText);
-			this.newTodoText = '';
-		}
-	}
+  addTodo() {
+    if (this.newTodoText.trim().length) {
+      this.todoStore.add(this.newTodoText);
+      this.newTodoText = '';
+    }
+  }
 }
