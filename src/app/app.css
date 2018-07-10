@@ -47,7 +47,7 @@
 
 .todoapp__todo-count { float: left; text-align: left; }
 
-.todoapp__todo-count strong { font-weight: 300; }
+.todoapp__todo-count-number { font-weight: 300; }
 
 .todoapp__filters { margin: 0; padding: 0; list-style: none; position: absolute; right: 0; left: 0; }
 

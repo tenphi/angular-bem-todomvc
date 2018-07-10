@@ -217,10 +217,10 @@
   &__todo-count {
     float: left;
     text-align: left;
+  }
 
-    strong {
-      font-weight: 300;
-    }
+  &__todo-count-number {
+    font-weight: 300;
   }
 
   &__filters {

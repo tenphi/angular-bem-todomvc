@@ -22,7 +22,7 @@
     </ul>
   </section>
   <footer elem="footer" *ngIf="todoStore.todos.length > 0">
-    <span elem="todo-count"><strong>{{todoStore.getRemaining().length}}</strong> {{todoStore.getRemaining().length == 1 ? 'item' : 'items'}} left</span>
+    <span elem="todo-count"><strong elem="todo-count-number">{{todoStore.getRemaining().length}}</strong> {{todoStore.getRemaining().length == 1 ? 'item' : 'items'}} left</span>
     <button elem="clear-completed" *ngIf="todoStore.getCompleted().length > 0" (click)="removeCompleted()">Clear
       completed
     </button>
