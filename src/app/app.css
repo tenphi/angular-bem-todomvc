@@ -61,14 +61,6 @@
 
 .todoapp__clear-completed:hover { text-decoration: underline; }
 
-.todoapp__info { margin: 65px auto 0; color: #bfbfbf; font-size: 10px; text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5); text-align: center; }
-
-.todoapp__info p { line-height: 1; }
-
-.todoapp__info a { color: inherit; text-decoration: none; font-weight: 400; }
-
-.todoapp__info a:hover { text-decoration: underline; }
-
 .todoapp__todo--completed .todoapp__todo-label { color: #d9d9d9; text-decoration: line-through; background-image: url("data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%22-10%20-18%20100%20135%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22none%22%20stroke%3D%22%23bddad5%22%20stroke-width%3D%223%22/%3E%3Cpath%20fill%3D%22%235dc2af%22%20d%3D%22M72%2025L42%2071%2027%2056l-4%204%2020%2020%2034-52z%22/%3E%3C/svg%3E"); }
 
 .todoapp__filter--selected .todoapp__filter-link { border-color: rgba(175, 47, 47, 0.2); }
